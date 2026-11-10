@@ -124,7 +124,26 @@
             <a class="link-button" href="https://loop.usercontent.microsoft/?disableExtension=true&preview=true#" target="_blank" rel="noopener noreferrer">LinkedIn</a>
           </div>
         </section>
+        <section class="section">
+          <h2 class="section-title">Site Statistics</h2>
+          <p>
+            Visitors:
+            <strong><span id="visitor-count">Loading...</span></strong>
+          </p>
+        </section>
       </div>
     </main>
+    <script>
+<script>
+fetch("https://rssh4yz3c8.execute-api.eu-west-2.amazonaws.com/count")
+  .then(response => response.json())
+  .then(data => {
+    document.getElementById("visitor-count").textContent = data.count;
+  })
+  .catch(error => {
+    console.error("Visitor counter error:", error);
+    document.getElementById("visitor-count").textContent = "Unavailable";
+  });
+</script>
   </body>
 </html>
