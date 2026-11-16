@@ -73,6 +73,10 @@ resource "aws_cloudfront_distribution" "cloud_resume" {
 
   enabled             = true
   default_root_object = "index.html"
+  aliases = [
+    "andylotrtechie.uk",
+    "www.andylotrtechie.uk"
+  ]
 
   origin {
     domain_name = aws_s3_bucket_website_configuration.cloud_resume.website_endpoint
@@ -122,6 +126,8 @@ resource "aws_cloudfront_distribution" "cloud_resume" {
   }
 
   viewer_certificate {
-    cloudfront_default_certificate = true
+    acm_certificate_arn      = "arn:aws:acm:us-east-1:836580017713:certificate/82e407cb-5cef-476c-8708-9b5875fcc161"
+    ssl_support_method       = "sni-only"
+    minimum_protocol_version = "TLSv1.2_2021"
   }
 }

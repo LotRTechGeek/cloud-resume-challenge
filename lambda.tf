@@ -5,10 +5,10 @@ resource "aws_lambda_function" "visitor_counter" {
   filename = "visitor-counter/lambda.zip"
 
   source_code_hash = filebase64sha256(
-  "visitor-counter/lambda.zip"
-)
+    "visitor-counter/lambda.zip"
+  )
 
-  
+
 
   handler = "lambda_function.lambda_handler"
 
