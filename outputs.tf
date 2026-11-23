@@ -21,3 +21,12 @@ output "cloudfront_url" {
 output "visitor_counter_url" {
   value = "${aws_apigatewayv2_api.counter.api_endpoint}/count"
 }
+output "route53_zone_id" {
+  description = "Route53 Hosted Zone ID"
+  value       = aws_route53_zone.main.zone_id
+}
+
+output "route53_name_servers" {
+  description = "Route53 Name Servers"
+  value       = aws_route53_zone.main.name_servers
+}
